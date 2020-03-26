@@ -1,0 +1,16 @@
+.navbar-brand {
+    font-size: xx-large;
+}
+
+.city-search{
+    max-width: 325px;
+    font-size: large ;
+    font-weight: bold;
+    background-color: lightgrey;
+}
+
+.input-group{
+    max-width: 250px;
+    margin-left: 15px;
+    margin-top: 10px;
+}
