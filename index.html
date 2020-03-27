@@ -19,28 +19,54 @@
 </header>
 
 <body>
-    <div class="city-search">
-        <p id='search-text'>Search for a City:</p>
-        <div class="input-group flex-nowrap">
-            <input type="text" class="form-control" placeholder="Search" aria-label="Search"
-                aria-describedby="addon-wrapping">
-            <div class="input-group-append">
-                <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+    <div class='container-fluid'>
+        <div class='row'>
+            <aside class="city-search col-md-3">
+                <p id='search-text'>Search for a City:</p>
+                <div class="input-group flex-nowrap">
+                    <input id="city-search" type="text" class="form-control" placeholder="Search" aria-label="Search"
+                        aria-describedby="addon-wrapping">
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-primary" id='search-btn'><i class="fa fa-search"></i></button>
+                    </div>
+                </div>
+                <ul class="history">
+
+                </ul>          
+            </aside>
+
+            <div class="current-forecast col-md-9">
+                <div id='today'></div>
+                <!-- <div class="row">
+                    <div id="city-name">City</div>
+                    <div id="temperature">temp</div>
+                    <div id="humidity">humidity</div>
+                    <div id="wind-speed">wind-speed</div>
+                    <div id="uv-index">uv-index</div> -->
+                <!-- </div> -->
+                <div id='forecast'></div>
+                <!-- <div class="row five-day-forecast">
+                    <div class='day-one col-md-2'>five day</div>
+                    <div class='day-one col-md-2'>four</div>
+                    <div class='day-one col-md-2'>three</div>
+                    <div class='day-one col-md-2'>two</div>
+                    <div class='day-one col-md-2'>one</div> -->
             </div>
         </div>
     </div>
 
 
 
+
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script>
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
     <script src="script.js"></script>
 </body>
 
