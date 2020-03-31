@@ -12,16 +12,7 @@
     margin-top: 10px;
 
 }
-/* .current-forecast{
+.weatherCard{
+    margin: 5px;
     
-} */
-.uvGreen{
-background-color: green;
-}
-.uvYellow{
-    background-color: yellow;
-}
-.uvRed{
-
-background-color: red;
 }
