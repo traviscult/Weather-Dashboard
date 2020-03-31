@@ -82,18 +82,10 @@ $(document).ready(function () {
                 method: 'GET'
             })
             .then(function (response) {
-                // console.log(response);
-
-                // var maxVal = 3;
-                // var day = Math.floor( response.list.length / maxVal );   
-
-                // let iconURL = "<img src='http://openweathermap.org/img/wn/" + response.weather[0].icon + "@2x.png'>" 
 
                 let fiveDay = $('<h1>').addClass("card-title").text('Five Day Forecast');
-                let forecastCard = $('<div>').addClass("card");
-                forecastCard.append(fiveDay)
-           
-
+                $('#forecast').append(fiveDay)
+                
                 let newArr = response.list.filter((_,i) => i % 8 == 0); 
 
                 for (let i = 0; i < 5; i++) {
@@ -101,7 +93,8 @@ $(document).ready(function () {
                     const element = newArr[i]; 
                     console.log("fiveDayForecast -> element", element)
                     
-                    let date = new Date(element.dt_txt).toLocaleDateString()
+                    let iconFiveURL = "<img src='http://openweathermap.org/img/wn/" + element.weather[0].icon + "@2x.png'>"
+                    let date = new Date(element.dt_txt).toLocaleDateString() + iconFiveURL
                     let cardBody = $('<div>').addClass("card-body");
                     let temp = $('<p>').addClass("card-text").text("temperature: " + (element.main.temp));
                     let humidity = $('<p>').addClass("card-text").text("Humidity: " + element.main.humidity);
