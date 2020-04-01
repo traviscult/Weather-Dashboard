@@ -2,10 +2,10 @@
     font-size: xx-large;
 }
 
-.city-search{
+/* .city-search{
     font-size: large ;
     font-weight: bold;
-}
+} */
 
 .input-group{
     margin-left: 15px;
@@ -15,4 +15,8 @@
 .weatherCard{
     margin: 5px;
     
+}
+.font{
+
+    font-size: 8px;
 }

@@ -7,9 +7,14 @@ $(document).ready(function () {
         let searchValue = $('#city-searched').val();
         $('#city-searched').val('');
         history(searchValue);
-        // currentLocationForecast(searchValue);
         fiveDayForecast(searchValue);
         buildQueryURL(searchValue);
+    });
+
+    $(".history-btn").on("click","button", function(){
+        searchValue = $('.history-btn').text()
+        console.log(searchValue)
+        buildQueryURL($(this).text());
     });
 
 
@@ -23,6 +28,7 @@ $(document).ready(function () {
             })
             .then(function (response) {
                 console.log(response);
+                $('#today').empty();
 
                 let iconURL = "<img src='http://openweathermap.org/img/wn/" + response.weather[0].icon + "@2x.png'>"
 
@@ -82,8 +88,9 @@ $(document).ready(function () {
                 method: 'GET'
             })
             .then(function (response) {
+                $('#forecast').empty();
 
-                let fiveDay = $('<h1>').addClass("card-title").text('Five Day Forecast');
+                let fiveDay = $('<h1>').addClass("card-title").text('Five Day Forecast').append("<div class=\"row\">");
                 $('#forecast').append(fiveDay)
                 
                 let newArr = response.list.filter((_,i) => i % 8 == 0); 
@@ -94,15 +101,15 @@ $(document).ready(function () {
                     console.log("fiveDayForecast -> element", element)
                     
                     let iconFiveURL = "<img src='http://openweathermap.org/img/wn/" + element.weather[0].icon + "@2x.png'>"
-                    let date = new Date(element.dt_txt).toLocaleDateString() + iconFiveURL
+                    let date = $('<p>').addClass("font").text(new Date(element.dt_txt).toLocaleDateString()).append(iconFiveURL) 
                     let cardBody = $('<div>').addClass("card-body");
-                    let temp = $('<p>').addClass("card-text").text("temperature: " + (element.main.temp));
-                    let humidity = $('<p>').addClass("card-text").text("Humidity: " + element.main.humidity);
-                    let card = $('<div>').addClass("card col-sm-3 text-white bg-primary weatherCard");
+                    let temp = $('<p>').addClass("card-text font").text("temperature: " + (element.main.temp));
+                    let humidity = $('<p>').addClass("card-text font").text("Humidity: " + element.main.humidity);
+                    let card = $('<div>').addClass("card col-sm-2 text-white bg-primary weatherCard");
                     
                     cardBody.append(date, temp, humidity);
                     card.append(cardBody)
-                    $('#forecast').append(card)
+                    $('#forecast .row').append(card)
                 }
             })
 
@@ -111,9 +118,10 @@ $(document).ready(function () {
     //append the searched cities to a search hisrtory list 
     function history(searchValue) {
 
-        let searchList = $('<li>').addClass("list-group-item").text(searchValue);
-        $('.history').append(searchList)
-
+        let searchList = $('<li>').addClass("list-group-item");
+        let button = $("<button>").addClass("history-btn btn").text(searchValue);
+        $('.history').append(searchList);
+        searchList.append(button);
     };
 
 });
