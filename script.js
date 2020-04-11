@@ -13,7 +13,7 @@ $(document).ready(function () {
 
     $(".history-btn").on("click","button", function(){
         searchValue = $('.history-btn').text()
-        console.log(searchValue)
+        console.log(searchValue, "Iam being clicked!!!!!")
         buildQueryURL($(this).text());
     });
 
@@ -122,6 +122,7 @@ $(document).ready(function () {
         let button = $("<button>").addClass("history-btn btn").text(searchValue);
         $('.history').append(searchList);
         searchList.append(button);
+        
     };
 
 });
